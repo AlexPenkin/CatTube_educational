@@ -1,0 +1,11 @@
+.cat {
+    background-color: plum;
+    width: 80%;
+    color: lightyellow;
+    height: 500px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 100px;
+    margin-top: 100px;
+}
