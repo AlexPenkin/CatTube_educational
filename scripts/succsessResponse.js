@@ -1,13 +1,13 @@
 const isObject = require('./isObject');
 
 const succsessJSON = {
-    "status": "200",
-    "succsess": "OK"
+    'status': '200',
+    'succsess': 'OK'
 };
 
 const succsessResponse = (params) => {
-    if (isObject(params)) {
-        let result = Object.assign({}, succsessJSON);
+    if (params && isObject(params)) {
+        const result = Object.assign({}, succsessJSON);
         return JSON.stringify(Object.assign(result, params));
     } else if (params && Array.isArray(params)) {
         let result = Object.assign({}, succsessJSON);
@@ -17,6 +17,6 @@ const succsessResponse = (params) => {
         return JSON.stringify(result);
     }
     return succsessJSON;
-}
+};
 
 module.exports = succsessResponse;

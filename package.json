@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon app",
+    "dev": "nodemon ./scripts/bin/server",
+    "node": "node ./scripts/bin/server",
     "test": "jest --verbose"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "awilix": "^2.7.0",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.2.1",
