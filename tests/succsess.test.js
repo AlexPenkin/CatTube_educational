@@ -15,5 +15,5 @@ test('must return succsess response JSON with multiple parameters', () => {
 });
 
 test('must return succsess response JSON with single object', () => {
-        expect(JSON.parse(succsessResponse({test2: 1}))).toHaveProperty('test2', 1);
+    expect(JSON.parse(succsessResponse({test2: 1}))).toHaveProperty('test2', 1);
 });

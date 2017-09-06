@@ -5,12 +5,12 @@ const succsessResponse = require('../succsessResponse');
 const VIEW = path.resolve(__dirname, '/public/pages/login.html');
 
 module.exports.default = (router) => {
-    router.get('/login', async (ctx, next) => {
+    router.get('/login', async (ctx) => {
+        ctx.set('Cache-Control', 'public');
         await send(ctx, VIEW);
-        next();
     });
 
-    router.post('/login', async (ctx, next) => {
+    router.post('/login', async (ctx) => {
         const additionalParams = {
             add: 'pararm',
             one: 1
@@ -18,6 +18,5 @@ module.exports.default = (router) => {
         ctx.status = 200;
         ctx.type = 'json';
         ctx.body = succsessResponse(additionalParams);
-        next();
     });
 };
