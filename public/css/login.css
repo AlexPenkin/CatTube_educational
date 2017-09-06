@@ -3,6 +3,7 @@ html {
     width: 100%;
     height: 100%;
     min-height: 100%;
+    background-color: #0D1321;
 }
 
 body {
@@ -16,7 +17,7 @@ button:focus {
     outline: none;
 }
 
-.block {
+.login-wrap {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,12 +25,11 @@ button:focus {
 }
 
 #login-form {
-    border: 1px solid black;
     padding: 4px;
     border-radius: 3px;
     display: block;
     width: 400px;
-    height: 200px;
+    padding: 20px;
     margin-top: 10em;
 }
 
@@ -38,21 +38,25 @@ input {
     margin: 0 0 0 10%;
 }
 
-#login-form input {
-    width: 80%;
-    margin: 0 0 0 10%;
-}
-
 .button-one {
     border: none;
     margin: 0 auto;
     display: inherit;
-    border-radius: 999em;
-    width: 150px;
-    height: 30px;
-    color: white;
-    background-color: #72caaf;
-    border-color: #72caaf;
+    border-radius: 4px;
+    width: 300px;
+    height: 40px;
+    color: #F0EBD8;
+    background-color: #3E5C76;
+    border-color: #3E5C76;
+    margin-top: 15px;
+}
+
+.button-one:hover {
+    background-color: #748CAB;
+}
+
+.button-one:active {
+    background-color: #60738C;
 }
 
 .cat-logo {
@@ -68,4 +72,43 @@ input {
     font-size: 150px;
     text-align: center;
     font-family: 'Roboto';
+    color: #F0EBD8;
+}
+
+.login-input,
+.password-input {
+    height: 20px;
+    width: 246px;
+    border-radius: 4px;
+    color: #8e9ba9;
+    font-family: 'PT Sans';
+    margin: 10px 0;
+    margin: 20px auto;
+    display: block;
+    border: 2px solid #0D1321;
+    padding: 10px 10px 10px 40px;
+    font-size: 14px;
+}
+
+.login-input {
+    background-image: url('/images/login/cat_128.png');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+}
+
+.password-input {
+    background-image: url('/images/login/pawprint_dark_128.png');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+}
+
+@media screen and (max-width: 980px) {
+    .logo-title {
+        font-size: 75px;
+    }
+    #login-form {
+        margin-top: 3em;
+    }
 }
