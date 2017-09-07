@@ -1,27 +1,34 @@
-module.exports = async () => {
-    const Koa = require('koa');
-    const serve = require('koa-static');
-    const compress = require('koa-compress');
-    const Router = require('koa-router');
-    const createApis = require('./createApi');
-    const path = require('path');
-    const router = new Router();
-    const app = new Koa();
-    const PUBLIC_PATH = path.resolve(__dirname, '../../public');
+const Koa = require('koa');
+const serve = require('koa-static');
+const Router = require('koa-router');
+const path = require('path');
+const session = require('koa-session');
+const bodyParser = require('koa-bodyparser');
 
+
+const createDBConnection = require('./createDBConnection');
+
+const router = new Router();
+const app = new Koa();
+const createApis = require('./createApi');
+const createPassport = require('../auth/createPassport');
+
+module.exports.createServer = async () => {
+    const connection = await createDBConnection();
+    module.exports.connection = connection;
+    const passport = await createPassport(connection);
+    module.exports.passport = passport;
+    const PUBLIC_PATH = path.resolve(__dirname, '../../public');
+    app.keys = ['some secret hurr'];
     app
         .use(serve(PUBLIC_PATH))
-        .use(compress({
-            filter() {
-                return true;
-            },
-            threshold: 1500,
-            flush: require('zlib').Gzip
-        }))
+        .use(bodyParser())
+        .use(session(app))
+        .use(passport.initialize())
+        .use(passport.session())
         .use(router.routes())
         .use(router.allowedMethods());
 
     createApis(router);
-
     return app;
 };

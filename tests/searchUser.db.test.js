@@ -4,6 +4,6 @@ const searchUser = require('../scripts/auth/searchUser');
 test('must return user test', async () => {
     const connection = await createDBConnection();
     expect.assertions(1);
-    const result = await searchUser('test', connection);
+    const result = await searchUser('username', 'test', connection);
     expect(result.username).toBe('test');
 });

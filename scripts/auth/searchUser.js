@@ -1,10 +1,11 @@
-module.exports = (username, connection) => new Promise(async (resolve, reject) => {
-    await connection.query(`SELECT * FROM users WHERE username = '${username}'`, ((error, results) => {
+module.exports = (by, value, connection) => new Promise(async (resolve, reject) => {
+    await connection.query(`SELECT * FROM users WHERE ${by} = '${value}'`, ((error, results) => {
         if (error) {
             reject(error);
+            return;
         }
-        resolve(results[0]);
+        resolve(Object.assign({}, results[0]));
     }));
-    connection.end();
+    // connection.end();
 });
 

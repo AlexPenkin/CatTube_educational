@@ -1,5 +1,5 @@
-const createServer = require('./createServer');
-const PORT = process.env.PORT || 1338;
+const {createServer} = require('./createServer');
+const PORT = process.env.PORT || 7777;
 
 createServer().then((app) => {
     app.listen(PORT, () => {
@@ -7,6 +7,7 @@ createServer().then((app) => {
     //   logger.debug(`Server listening on ${PORT} in ${mode} mode`)
     });
 }, (err) => {
+    console.log(err);
     // logger.error('Error while starting up server', err)
     process.exit(1);
 });
