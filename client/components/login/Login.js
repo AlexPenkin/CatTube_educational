@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import normalize from './normalize.css';
 import fonts from './fonts.css';
 import style from './login.css';
 
 import logo from './cat_logo_128.png';
+
 
 const Login = (props) => {
     return (

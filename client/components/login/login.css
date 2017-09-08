@@ -91,14 +91,14 @@ input {
 }
 
 .login-input {
-    background-image: url('/images/login/cat_128.png');
+    background-image: url('./cat_128.png');
     background-size: 20px 20px;
     background-repeat: no-repeat;
     background-position: 10px 10px;
 }
 
 .password-input {
-    background-image: url('/images/login/pawprint_dark_128.png');
+    background-image: url('./pawprint_dark_128.png');
     background-size: 20px 20px;
     background-repeat: no-repeat;
     background-position: 10px 10px;
