@@ -4,13 +4,14 @@ import { Router } from 'react-router';
 import { Provider } from 'react-redux';
 import routes from '../routes';
 import DevTools from './DevTools';
+import Layout from '../components/layout/Layout';
 
 const Root = ({ store, history }) => (
     <Provider store={store}>
-        <div>
+        <Layout>
             <Router history={history} routes={routes} />
             {/* <DevTools /> */}
-        </div>
+        </Layout>
     </Provider>
 );
 

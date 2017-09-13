@@ -1,0 +1,24 @@
+.cat-logo-header {
+    height: 64px;
+    width: 64px;
+}
+
+.header-wrap {
+    height: 71px;
+    background: #0D1321;
+    ;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header {
+    height: 100%;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        width: auto;
+    }
+}

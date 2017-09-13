@@ -42,12 +42,8 @@ module.exports = {
             test: /\.css$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: 'css-loader'
+                use: ['css-loader?modules&importLoaders=1&camelCase=true&localIdentName=[name]__[local]___[hash:base64:5]', 'resolve-url-loader']
             })
-        },
-        {
-            test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-            loader: 'file-loader?name=fonts/[name].[ext]'
         },
         {
             test: /\.(gif|png|jpe?g|svg)$/i,
@@ -76,6 +72,10 @@ module.exports = {
                     }
                 }
             ]
+        },
+        {
+            test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
+            loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
         }
         ]
     },

@@ -1,0 +1,19 @@
+.footer-wrap {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background: #0D1321;
+}
+
+.footer {
+    width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+        width: auto;
+    }
+}
