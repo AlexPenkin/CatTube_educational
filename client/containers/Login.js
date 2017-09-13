@@ -3,9 +3,9 @@ import {fetchUser} from '../actions/fetchUser';
 import loginFormChange from '../actions/loginFormChange';
 import Login from '../components/login/Login';
 
-const mapStateToProps = ({user}, ownProps) => ({
-    username: user.username,
-    password: user.password,
+const mapStateToProps = ({loginForm}, ownProps) => ({
+    username: loginForm.username,
+    password: loginForm.password,
     inputValue: ownProps.location.pathname.substring(1)
 });
 

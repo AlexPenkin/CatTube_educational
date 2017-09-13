@@ -45,34 +45,34 @@ module.exports = {
                 use: ['css-loader?modules&importLoaders=1&camelCase=true&localIdentName=[name]__[local]___[hash:base64:5]', 'resolve-url-loader']
             })
         },
-        {
-            test: /\.(gif|png|jpe?g|svg)$/i,
-            loaders: [
-                'file-loader', {
-                    loader: 'image-webpack-loader',
-                    options: {
-                        gifsicle: {
-                            interlaced: false
-                        },
-                        optipng: {
-                            optimizationLevel: 7
-                        },
-                        pngquant: {
-                            quality: '65-90',
-                            speed: 4
-                        },
-                        mozjpeg: {
-                            progressive: true,
-                            quality: 65
-                        },
-                            // Specifying webp here will create a WEBP version of your JPG/PNG images
-                        webp: {
-                            quality: 75
-                        }
-                    }
-                }
-            ]
-        },
+        // {
+        //     test: /\.(gif|png|jpe?g|svg)$/i,
+        //     loaders: [
+        //         'file-loader', {
+        //             loader: 'image-webpack-loader',
+        //             options: {
+        //                 gifsicle: {
+        //                     interlaced: false
+        //                 },
+        //                 optipng: {
+        //                     optimizationLevel: 7
+        //                 },
+        //                 pngquant: {
+        //                     quality: '65-90',
+        //                     speed: 4
+        //                 },
+        //                 mozjpeg: {
+        //                     progressive: true,
+        //                     quality: 65
+        //                 },
+        //                     // Specifying webp here will create a WEBP version of your JPG/PNG images
+        //                 webp: {
+        //                     quality: 75
+        //                 }
+        //             }
+        //         }
+        //     ]
+        // },
         {
             test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
             loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'

@@ -5,47 +5,39 @@ import {
     FETCH_USER_SUCCESS
 } from '../actions/fetchUser';
 
-import {LOGIN_FORM_CHANGED} from '../actions/loginFormChange';
-
 const initialState = {
-    username: '',
-    password: '',
+    username: 'Guest',
     pending: false,
     connections: 0
-
 };
 
 const User = (state = initialState, action) => {
     const {
-        value,
-        name
+        value
     } = action;
+    const connectionsInc = state.connections + 1;
+    const connectionsDec = state.connections - 1;
     switch (action.type) {
         case FETCH_USER_PENDING:
             return {
                 ...state,
-                connections: state.connections + 1,
-                pending: Boolean(state.connection + 1)
+                connections: connectionsInc,
+                pending: connectionsInc + 1 !== 0
             };
         case FETCH_USER_SUCCESS:
             return {
                 ...state,
                 username: value.username,
-                connections: state.connections - 1,
-                pending: Boolean(state.connection - 1)
+                connections: connectionsDec,
+                pending: connectionsDec !== 0
             };
 
         case FETCH_USER_ERROR:
             return {
                 ...state,
                 username: 'error',
-                connections: state.connections - 1,
-                pending: Boolean(state.connection - 1)
-            };
-        case LOGIN_FORM_CHANGED:
-            return {
-                ...state,
-                [name]: value
+                connections: connectionsDec,
+                pending: connectionsDec !== 0
             };
         default:
             return state;

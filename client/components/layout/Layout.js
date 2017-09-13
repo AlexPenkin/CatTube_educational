@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from '../header/Header';
+import Header from '../../containers/Header';
 import Footer from '../footer/Footer';
 import style from './layout.css';
 import normalize from './normalize.css';
