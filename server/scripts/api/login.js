@@ -21,14 +21,15 @@ module.exports.default = (router) => {
                     };
                     ctx.throw(401);
                 } else {
-                    ctx.redirect('/');
+                    const parsedUser = {
+                        username: user.username
+                    };
+                    ctx.body = JSON.stringify(parsedUser);
                     return ctx.login(user);
                 }
                 return ctx;
             })(ctx);
         }
-        ctx.body = JSON.stringify(ctx.state.user);
-        return ctx;
     }
     );
 };

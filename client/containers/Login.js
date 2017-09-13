@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
-import { increment, decrement } from '../actions/increment';
+import {fetchUser} from '../actions/fetchUser';
+import loginFormChange from '../actions/loginFormChange';
 import Login from '../components/login/Login';
 
-const mapStateToProps = (state, ownProps) => ({
-    user: state.Login,
+const mapStateToProps = ({user}, ownProps) => ({
+    username: user.username,
+    password: user.password,
     inputValue: ownProps.location.pathname.substring(1)
 });
 
 export default connect(mapStateToProps, {
-    increment,
-    decrement
+    fetchUser,
+    loginFormChange
 })(Login);

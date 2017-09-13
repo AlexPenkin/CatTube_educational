@@ -10,7 +10,7 @@ const Root = ({ store, history }) => (
     <Provider store={store}>
         <Layout>
             <Router history={history} routes={routes} />
-            {/* <DevTools /> */}
+            <DevTools />
         </Layout>
     </Provider>
 );
