@@ -35,7 +35,6 @@ export const fetchUser = (username, password) => (dispatch) => {
     })
         .then(response => response.json())
         .then(response => dispatch(succsessRequest(response)))
-        .then(() => dispatch(pendingRequest(false)))
         .catch(err => dispatch(errorRequest(err)));
 };
 

@@ -5,7 +5,6 @@ const initialState = {
     password: ''
 };
 
-
 const loginForm = (state = initialState, action) => {
     const { value, name } = action;
     switch (action.type) {
