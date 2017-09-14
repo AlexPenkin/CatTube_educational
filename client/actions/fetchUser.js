@@ -1,4 +1,5 @@
 import 'whatwg-fetch';
+import addError from './error';
 
 export const FETCH_USER = 'FETCH_USER';
 export const FETCH_USER_PENDING = 'FETCH_USER_PENDING';
@@ -20,6 +21,13 @@ const errorRequest = err => ({
     value: err
 });
 
+function makeError(name, message) {
+    const error = new Error();
+    error.name = name;
+    error.message = message;
+    return error;
+}
+
 export const fetchUser = (username, password) => (dispatch) => {
     dispatch(pendingRequest(true));
     fetch('/login', {
@@ -33,9 +41,20 @@ export const fetchUser = (username, password) => (dispatch) => {
             password
         })
     })
-        .then(response => response.json())
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+            if (response.status === 401) {
+                throw makeError('Wrong credentials!', 'Enter proper credetials');
+            }
+            throw makeError('Connection error', 'Please, contact our cats');
+        })
         .then(response => dispatch(succsessRequest(response)))
-        .catch(err => dispatch(errorRequest(err)));
+        .catch((err) => {
+            dispatch(errorRequest(err));
+            dispatch(addError(err));
+        });
 };
 
 
