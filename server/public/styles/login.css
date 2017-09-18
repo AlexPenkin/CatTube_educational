@@ -1,0 +1,161 @@
+button,
+button:active,
+button:focus {
+    outline: none;
+}
+
+.login-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 100%;
+}
+
+#login-form {
+    padding: 4px;
+    border-radius: 3px;
+    display: block;
+    width: 400px;
+    padding: 20px;
+    margin-top: 135px;
+    margin-left: 700px;
+}
+
+.form-wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#login-form label,
+input {
+    margin: 0 0 0 10%;
+}
+
+.button-one {
+    border: none;
+    margin: 0 auto;
+    display: inherit;
+    border-radius: 4px;
+    width: 300px;
+    height: 40px;
+    color: #F0EBD8;
+    background-color: #748CAB;
+    border-color: #748CAB;
+    margin-top: 15px;
+}
+
+.button-one:hover {
+    background-color: #738BAB;
+}
+
+.button-one:active {
+    background-color: #0D1321;
+}
+
+.login-input,
+.password-input {
+    height: 20px;
+    width: 246px;
+    border-radius: 4px;
+    color: #8e9ba9;
+    font-family: 'PT Sans';
+    margin: 10px 0;
+    margin: 20px auto;
+    display: block;
+    border: none;
+    padding: 10px 10px 10px 40px;
+    font-size: 14px;
+}
+
+.login-input {
+    background-image: url('/img/cat_128.png');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+}
+
+.password-input {
+    background-image: url('/img/pawprint_dark_128.png');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+}
+
+.remind {
+    float: left;
+    margin-top: 15px;
+    margin-left: 50px;
+}
+
+.signup {
+    float: right;
+    margin-top: 15px;
+    margin-right: 55px;
+}
+
+.links a {
+    color: white;
+}
+
+.links a:visited {
+    color: white;
+}
+
+.about-column {
+    width: 278px;
+    background: #748CAB;
+    position: absolute;
+    top: 71px;
+    bottom: 50px;
+}
+
+.slide-column {
+    width: 302px;
+    background: #F0EBD8;
+    position: absolute;
+    left: 50%;
+    top: 71px;
+    bottom: 50px;
+    margin-left: -322px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.slide-item {
+    display: block;
+    width: 128px;
+    background: red;
+}
+
+@media screen and (max-width: 1200px) {
+    .slide-column {
+        display: none;
+    }
+    .logo-title {
+        font-size: 75px;
+    }
+    #login-form {
+        margin-top: 3em;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .slide-column,
+    .about-column {
+        display: none;
+    }
+    .logo-title {
+        font-size: 75px;
+    }
+    #login-form {
+        margin-top: 3em;
+        margin: 0 auto;
+    }
+    .form-wrap {
+        width: 100%;
+        margin: 0 auto;
+    }
+}

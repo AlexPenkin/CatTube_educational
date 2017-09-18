@@ -2,4 +2,3 @@ node_modules/
 launch.json
 .vscode/
 dist/
-public/
