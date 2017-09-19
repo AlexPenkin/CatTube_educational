@@ -1,12 +1,12 @@
 .cat-logo-header {
-    height: 64px;
-    width: 64px;
+    height: 50px;
+    width: 50px;
+    
 }
 
 .header-wrap {
     height: 71px;
     background: #0D1321;
-    ;
     width: 100%;
     box-sizing: border-box;
 }
@@ -18,7 +18,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+    font-size: 40px;
+    color: #F0EBD8;
+  }
 
 @media screen and (max-width: 768px) {
     .header {

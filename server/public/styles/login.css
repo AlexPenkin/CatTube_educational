@@ -68,14 +68,14 @@ input {
 }
 
 .login-input {
-    background-image: url('/img/cat_128.png');
+    background-image: url('../images/cat_128.png');
     background-size: 20px 20px;
     background-repeat: no-repeat;
     background-position: 10px 10px;
 }
 
 .password-input {
-    background-image: url('/img/pawprint_dark_128.png');
+    background-image: url('../images/pawprint_dark_128.png');
     background-size: 20px 20px;
     background-repeat: no-repeat;
     background-position: 10px 10px;
@@ -125,8 +125,13 @@ input {
 
 .slide-item {
     display: block;
-    width: 128px;
-    background: red;
+    width: 210px;
+    text-align: center;
+    font-size: 22px;
+}
+.slide-item-img {
+    width: 180px;
+    margin-bottom: 7px;
 }
 
 @media screen and (max-width: 1200px) {
