@@ -133,6 +133,31 @@ input {
     width: 180px;
     margin-bottom: 7px;
 }
+.about {
+    padding: 70px 25px 0;
+    text-align: left;
+}
+
+.title{
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    line-height: 41px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.text {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.line {
+    height: 2px;
+    width: 100%;
+    background: white;
+    margin: 20px 0;
+}
 
 @media screen and (max-width: 1200px) {
     .slide-column {
