@@ -1,5 +1,5 @@
 import 'whatwg-fetch';
-import addError from './error';
+import {addErrorWithoutShowning, addErrorWithShowning} from './error';
 
 export const FETCH_USER = 'FETCH_USER';
 export const FETCH_USER_PENDING = 'FETCH_USER_PENDING';
@@ -53,7 +53,7 @@ export const fetchUser = (username, password) => (dispatch) => {
         .then(response => dispatch(succsessRequest(response)))
         .catch((err) => {
             dispatch(errorRequest(err));
-            dispatch(addError(err));
+            dispatch(addErrorWithShowning(err));
         });
 };
 

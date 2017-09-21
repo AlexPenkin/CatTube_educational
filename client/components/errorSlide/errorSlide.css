@@ -1,0 +1,29 @@
+.error-slide-wrap-show, .error-slide-wrap-hide {
+    width: 100%;
+    height: 40px;
+    background-color: #971C1C;
+    z-index: 10;
+    position: absolute;
+}
+
+.error-slide-wrap-hide {
+    display: none;
+}
+
+.error-slide {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    line-height: 40px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    color: white;
+}
+
+.error-title {
+
+}
+
+.error-message {
+
+}

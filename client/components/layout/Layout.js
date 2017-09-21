@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Modal from '../../containers/Modal';
+import ErrorSlide from '../../containers/ErrorSlide';
 import Header from '../../containers/Header';
 import Footer from '../footer/Footer';
 import style from './layout.css';
@@ -12,8 +12,8 @@ const Layout = ({
     children
 }) => (
     <div className={style.layout}>
-        <Modal />
         <Header />
+        <ErrorSlide />
         {children}
         <Footer />
     </div>
