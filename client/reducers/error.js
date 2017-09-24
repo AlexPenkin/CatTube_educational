@@ -7,17 +7,9 @@ import {
 
 const initialState = {
     errors: [],
-    errorWillBeShow: {
-        id: 0,
-        name: 'Not defined',
-        message: 'Define error handler',
-        shouldBeShown: false,
-        isShown: false
-    },
+    errorsWillBeShow: [],
     mustShow: false
 };
-
-const filterErrorsThatMustBeShow = errors => errors.filter(el => el.shouldBeShown && !el.isShown);
 
 const makeErrorFabricWithCounter = () => {
     let counter = 0;
@@ -48,16 +40,12 @@ const findByID = (array, id) => {
     return desiredIndex;
 };
 
-const setShown = (errors) => {
+const setShown = (errors, id) => {
     const newErrors = [...errors];
-    const sortedErrors = filterErrorsThatMustBeShow(newErrors);
-    const id = sortedErrors[0].id;
     const index = findByID(newErrors, id);
-    newErrors[index].shouldBeShown = false;
-    newErrors[index].isShown = true;
+    newErrors.splice(index, 1);
     return newErrors;
 };
-
 
 const makeError = makeErrorFabricWithCounter();
 
@@ -67,6 +55,8 @@ const errors = (state = initialState, action) => {
         error,
         id
     } = action;
+    let customError;
+    let newErrors;
     switch (type) {
         case ADD_ERROR_THAT_SHOULDNT_SHOW:
             return {
@@ -74,22 +64,27 @@ const errors = (state = initialState, action) => {
                 errors: makeError(state.errors, error)
             };
         case ADD_ERROR_THAT_SHOULD_SHOW:
+            customError = makeError(state.errors, error, { shouldBeShown: true });
+            newErrors = [...state.errorsWillBeShow];
+            newErrors.push(customError[customError.length - 1]);
             return {
                 ...state,
-                errors: makeError(state.errors, error, {shouldBeShown: true})
+                errors: customError,
+                errorsWillBeShow: newErrors
             };
 
         case SET_ERROR_SHOWN:
             return {
                 ...state,
-                errors: setShown(state.errors),
+                errorsWillBeShow: setShown(state.errorsWillBeShow, id),
                 mustShow: false
             };
         case SHOW_ERRORS:
+            newErrors = [...state.errorsWillBeShow];
+            newErrors.splice(0, 1);
             return {
                 ...state,
-                errorWillBeShow: filterErrorsThatMustBeShow(state.errors)[0],
-                mustShow: true
+                errorsWillBeShow: newErrors
             };
         default:
             return state;

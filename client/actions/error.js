@@ -9,7 +9,8 @@ export const addErrorWithoutShowning = error => ({
 });
 
 export const setErrorShown = id => ({
-    type: SET_ERROR_SHOWN
+    type: SET_ERROR_SHOWN,
+    id
 });
 
 export const showErrors = { type: SHOW_ERRORS };
@@ -19,8 +20,7 @@ export const addErrorWithShowning = error => (dispatch) => {
         type: ADD_ERROR_THAT_SHOULD_SHOW,
         error
     });
-    dispatch(showErrors);
     setTimeout(() => {
-        dispatch(setErrorShown());
-    }, 5000);
+        dispatch(showErrors);
+    }, 50000);
 };

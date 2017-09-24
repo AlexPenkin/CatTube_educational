@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
-import ErrorSlide from '../components/errorSlide/ErrorSlide';
+import ErrorSlide from '../components/errorSlide/ErrorSlideGroup';
+import { setErrorShown } from '../actions/error';
 
 const mapStateToProps = ({errors}) => ({
-    errorWillBeShow: errors.errorWillBeShow,
-    mustShow: errors.mustShow
+    errorsWillBeShow: errors.errorsWillBeShow
 });
 
-export default connect(mapStateToProps, {})(ErrorSlide);
+export default connect(mapStateToProps, {
+    setErrorShown
+})(ErrorSlide);
