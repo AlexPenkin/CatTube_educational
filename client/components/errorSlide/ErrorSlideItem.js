@@ -5,7 +5,7 @@ import styles from './errorSlide.css';
 const ErrorSlideItem = ({ name, message, id, setErrorShown }) => (
     <div className={styles.errorSlide}>
         <div>
-            <span className={styles.errorTitle}>{name}: </span>
+            <span className={styles.errorTitle}>{`${name}: `} </span>
             <span className={styles.errorMessage}>{message} </span>
         </div>
         <div

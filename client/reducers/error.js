@@ -7,8 +7,7 @@ import {
 
 const initialState = {
     errors: [],
-    errorsWillBeShow: [],
-    mustShow: false
+    errorsWillBeShow: []
 };
 
 const makeErrorFabricWithCounter = () => {
@@ -19,9 +18,7 @@ const makeErrorFabricWithCounter = () => {
         const errorObj = Object.assign({
             id: counter,
             name: error.name || 'Not defined',
-            message: error.message || 'Define error handler',
-            shouldBeShown: false,
-            isShown: false
+            message: error.message || 'Define error handler'
         }, settings);
         errorsNew.push(errorObj);
         return errorsNew;
@@ -64,7 +61,7 @@ const errors = (state = initialState, action) => {
                 errors: makeError(state.errors, error)
             };
         case ADD_ERROR_THAT_SHOULD_SHOW:
-            customError = makeError(state.errors, error, { shouldBeShown: true });
+            customError = makeError(state.errors, error);
             newErrors = [...state.errorsWillBeShow];
             newErrors.push(customError[customError.length - 1]);
             return {
@@ -76,8 +73,7 @@ const errors = (state = initialState, action) => {
         case SET_ERROR_SHOWN:
             return {
                 ...state,
-                errorsWillBeShow: setShown(state.errorsWillBeShow, id),
-                mustShow: false
+                errorsWillBeShow: setShown(state.errorsWillBeShow, id)
             };
         case SHOW_ERRORS:
             newErrors = [...state.errorsWillBeShow];

@@ -22,5 +22,5 @@ export const addErrorWithShowning = error => (dispatch) => {
     });
     setTimeout(() => {
         dispatch(showErrors);
-    }, 50000);
+    }, 10000);
 };
