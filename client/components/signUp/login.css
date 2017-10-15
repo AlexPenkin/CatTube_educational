@@ -4,14 +4,14 @@ button:focus {
     outline: none;
 }
 
-.login-wrap, .signUp-wrap {
+.login-wrap {
     display: flex;
     align-items: center;
     justify-content: center;
     max-height: 100%;
 }
 
-#login-form, #signUp-form {
+#login-form {
     padding: 4px;
     border-radius: 3px;
     display: block;
@@ -68,14 +68,12 @@ input {
 }
 
 .login-input {
-    background-image: url('../images/cat_128.png');
     background-size: 20px 20px;
     background-repeat: no-repeat;
     background-position: 10px 10px;
 }
 
 .password-input {
-    background-image: url('../images/pawprint_dark_128.png');
     background-size: 20px 20px;
     background-repeat: no-repeat;
     background-position: 10px 10px;
@@ -125,38 +123,8 @@ input {
 
 .slide-item {
     display: block;
-    width: 210px;
-    text-align: center;
-    font-size: 22px;
-}
-.slide-item-img {
-    width: 180px;
-    margin-bottom: 7px;
-}
-.about {
-    padding: 70px 25px 0;
-    text-align: left;
-}
-
-.title{
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-    line-height: 41px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.text {
-    font-size: 20px;
-    line-height: 24px;
-}
-
-.line {
-    height: 2px;
-    width: 100%;
-    background: white;
-    margin: 20px 0;
+    width: 128px;
+    background: red;
 }
 
 @media screen and (max-width: 1200px) {

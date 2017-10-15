@@ -1,8 +1,11 @@
 import React from 'react';
-import spinner from './spinner.svg';
+import spinnerSvg from './spinner.svg';
+import {spinnerWrap, spinner} from './spinner.css';
 
 const Spinner = () => (
-    <img src={spinner} alt="" />
+    <div className={spinnerWrap}>
+        <img className={spinner} src={spinnerSvg} alt="" />
+    </div>
 );
 
 export default Spinner;

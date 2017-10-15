@@ -11,7 +11,7 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, '../server/public/dist'),
-        publicPath: '/'
+        publicPath: '//localhost/'
     },
     devServer: {
         publicPath: '/dist',
@@ -29,9 +29,10 @@ module.exports = {
                     babelrc: false,
                     presets: [
                         'react',
-                        'latest', ['es2015']
+                        'latest', 'es2015', 'es2015-ie'
                     ],
                     plugins: [
+                        'transform-object-assign',
                         'transform-object-rest-spread',
                         'transform-es2015-destructuring'
                     ]
@@ -74,7 +75,13 @@ module.exports = {
         //     ]
         // },
         {
-            test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
+            test: /\.(eot|woff|woff2|ttf)$/,
+            exclude: /node_modules/,
+            loader: 'url-loader?limit=30000&name=fonts/[name]-[hash].[ext]'
+        },
+        {
+            test: /\.(svg|png|jpg)$/,
+            exclude: /node_modules/,
             loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
         }
         ]

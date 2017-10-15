@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './header.css';
+import {headerWrap, header, headerTitle} from './header.css';
 import logo from './cat_logo_128.png';
 import Spinner from '../spinner/Spinner';
 
 const Header = ({username, pending}) => (
-    <div className={styles.headerWrap}>
-        <div className={styles.header}>
-            <img className={styles.catLogoHeader} src={logo} alt="" />
+    <div className={headerWrap}>
+        <div className={header}>
+            <span className={headerTitle}>Cat Tube </span>
             <span>{username}</span>
             {pending && <Spinner />}
         </div>

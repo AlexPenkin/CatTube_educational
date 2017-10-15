@@ -9,11 +9,10 @@ const initialState = {
 };
 
 const slideError = (state = initialState, action) => {
-    const { errors } = action;
     switch (action.type) {
         case SHOW_ERRORS:
             return {
-                ...state,
+                ...state
             };
         default:
             return state;

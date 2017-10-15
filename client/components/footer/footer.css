@@ -10,6 +10,7 @@
     width: 1200px;
     margin: 0 auto;
     height: 100%;
+    background: #0D1321;
 }
 
 @media screen and (max-width: 768px) {

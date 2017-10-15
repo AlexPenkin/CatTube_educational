@@ -6,10 +6,11 @@ import rootReducer from '../rootReducer';
 import DevTools from '../containers/DevTools';
 
 const configureStore = (preloadedState) => {
+    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     const store = createStore(
     rootReducer,
     preloadedState,
-    compose(
+    composeEnhancers(
       applyMiddleware(thunk, /* api ,*/ createLogger()),
       DevTools.instrument()
     )

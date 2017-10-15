@@ -5,8 +5,8 @@ import Header from '../../containers/Header';
 import Footer from '../footer/Footer';
 import style from './layout.css';
 import normalize from './normalize.css';
-import fonts from './fonts.css';
-
+// import fonts from './fonts.css';
+import Login from '../../containers/Login';
 
 const Layout = ({
     children
@@ -20,7 +20,7 @@ const Layout = ({
 );
 
 Layout.propTypes = {
-    children: PropTypes.element.isRequired
+    children: PropTypes.array.isRequired
 };
 
 export default Layout;

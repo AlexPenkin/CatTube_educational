@@ -6,18 +6,26 @@
 .header-wrap {
     height: 71px;
     background: #0D1321;
-    ;
     width: 100%;
     box-sizing: border-box;
 }
 
 .header {
+    background: #0D1321;
     height: 100%;
     width: 1200px;
+    padding: 0 10px;
+    box-sizing: border-box;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.header-title {
+    font-size: 55px;
+    font-family: "Open Sans";
+    color: white;
 }
 
 @media screen and (max-width: 768px) {

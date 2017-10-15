@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import {fetchUser} from '../actions/fetchUser';
 import loginFormChange from '../actions/loginFormChange';
-import Login from '../components/login/Login';
+import Login from '../pages/login/Login';
 
 const mapStateToProps = ({loginForm}, ownProps) => ({
     username: loginForm.username,

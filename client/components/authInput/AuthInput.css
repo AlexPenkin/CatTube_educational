@@ -1,0 +1,11 @@
+.auth-input-wrap {
+    position: relative;
+}
+
+.input-image {
+    position: absolute;
+    left: 60px;
+    top: 7px;
+    height: 26px;
+    width: 26px;
+}

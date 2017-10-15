@@ -68,14 +68,12 @@ input {
 }
 
 .login-input {
-    background-image: url('/img/cat_128.png');
     background-size: 20px 20px;
     background-repeat: no-repeat;
     background-position: 10px 10px;
 }
 
 .password-input {
-    background-image: url('/img/pawprint_dark_128.png');
     background-size: 20px 20px;
     background-repeat: no-repeat;
     background-position: 10px 10px;
@@ -101,38 +99,7 @@ input {
     color: white;
 }
 
-.about-column {
-    width: 278px;
-    background: #748CAB;
-    position: absolute;
-    top: 71px;
-    bottom: 50px;
-}
-
-.slide-column {
-    width: 302px;
-    background: #F0EBD8;
-    position: absolute;
-    left: 50%;
-    top: 71px;
-    bottom: 50px;
-    margin-left: -322px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-}
-
-.slide-item {
-    display: block;
-    width: 128px;
-    background: red;
-}
-
 @media screen and (max-width: 1200px) {
-    .slide-column {
-        display: none;
-    }
     .logo-title {
         font-size: 75px;
     }
@@ -143,10 +110,6 @@ input {
 }
 
 @media screen and (max-width: 768px) {
-    .slide-column,
-    .about-column {
-        display: none;
-    }
     .logo-title {
         font-size: 75px;
     }
