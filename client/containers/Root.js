@@ -8,10 +8,10 @@ import Layout from '../components/layout/Layout';
 
 const Root = ({ store, history }) => (
     <Provider store={store}>
-        <Layout>
-            {<DevTools />}
-            <Router history={history} routes={routes} />
-        </Layout>
+            <div style={{height: '100%'}}>
+                <DevTools />
+                <Router history={history} routes={routes} />
+            </div>
     </Provider>
 );
 

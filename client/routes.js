@@ -3,6 +3,7 @@ import { Route } from 'react-router';
 import Login from './containers/Login';
 import SignUp from './containers/SignUp';
 import Root from './containers/Root';
+import Layout from './components/layout/Layout';
 
 export default
     <Route
@@ -11,10 +12,10 @@ export default
     >
         <Route
             path="signup"
-            component={SignUp}
+            component={Layout(SignUp)}
         />
         <Route
             path="login"
-            component={Login}
+            component={Layout(Login)}
         />
     </Route>;

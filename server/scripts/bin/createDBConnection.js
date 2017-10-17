@@ -7,8 +7,8 @@ module.exports = async () => {
     const connection = await mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        password: 'zxcvbn',
-        database: 'cattube_users'
+        password: '1',
+        database: 'cat_tube'
     });
     const originalEnd = connection.end;
     connection.end = async () => {

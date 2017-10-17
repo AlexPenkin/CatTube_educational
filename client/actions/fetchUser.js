@@ -5,15 +5,21 @@ export const FETCH_USER = 'FETCH_USER';
 export const FETCH_USER_PENDING = 'FETCH_USER_PENDING';
 export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
 export const FETCH_USER_ERROR = 'FETCH_USER_ERROR';
+export const FETCH_USER_SUCCESS_WITHOUT_PENDING = 'FETCH_USER_SUCCESS_WITHOUT_PENDING';
 
-const pendingRequest = bool => ({
+export const pendingRequest = bool => ({
     type: FETCH_USER_PENDING,
     value: bool
 });
 
-const succsessRequest = payload => ({
+export const succsessRequest = payload => ({
     type: FETCH_USER_SUCCESS,
-    value: payload
+    username: payload
+});
+
+export const succsessRequestWithotPending = payload => ({
+    type: FETCH_USER_SUCCESS_WITHOUT_PENDING,
+    username: payload
 });
 
 const errorRequest = err => ({
@@ -46,11 +52,14 @@ export const fetchUser = (username, password) => (dispatch) => {
                 return response.json();
             }
             if (response.status === 401) {
-                throw makeError('Wrong credentials!', 'Enter proper credetials');
+                throw makeError('Wrong credentials', 'Enter proper credetials');
+            }
+            if (response.status === 400) {
+                throw makeError('Please continue', 'We have been recognize you by your tail =)');
             }
             throw makeError('Connection error', 'Please, contact our cats');
         })
-        .then(response => dispatch(succsessRequest(response)))
+        .then(response => dispatch(succsessRequest(response.username)))
         .catch((err) => {
             dispatch(errorRequest(err));
             dispatch(addErrorWithShowning(err));

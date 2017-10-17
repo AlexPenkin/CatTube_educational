@@ -8,19 +8,20 @@ import normalize from './normalize.css';
 // import fonts from './fonts.css';
 import Login from '../../containers/Login';
 
-const Layout = ({
-    children
-}) => (
-    <div className={style.layout}>
-        <Header />
-        <ErrorSlide />
-        {children}
-        <Footer />
-    </div>
-);
+const Layout = (Children) => {
+    const wrappedComponent = props => (
+        <div className={style.layout}>
+            <Header />
+            <ErrorSlide />
+            <Children {...props} />
+            <Footer />
+        </div>
+    );
+    return wrappedComponent;
+};
 
 Layout.propTypes = {
-    children: PropTypes.array.isRequired
+    Children: PropTypes.object.isRequired
 };
 
 export default Layout;

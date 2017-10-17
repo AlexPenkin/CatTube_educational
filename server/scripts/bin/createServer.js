@@ -5,10 +5,7 @@ const path = require('path');
 const logger = require('koa-logger')
 const session = require('koa-session');
 const bodyParser = require('koa-bodyparser');
-
-
 const createDBConnection = require('./createDBConnection');
-
 const router = new Router();
 const app = new Koa();
 const createApis = require('./createApi');

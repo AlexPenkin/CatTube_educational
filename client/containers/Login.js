@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import {fetchUser} from '../actions/fetchUser';
-import loginFormChange from '../actions/loginFormChange';
+import formChange from '../actions/formChange';
 import Login from '../pages/login/Login';
 
 const mapStateToProps = ({loginForm}, ownProps) => ({
@@ -11,5 +11,5 @@ const mapStateToProps = ({loginForm}, ownProps) => ({
 
 export default connect(mapStateToProps, {
     fetchUser,
-    loginFormChange
+    formChange: formChange('login')
 })(Login);

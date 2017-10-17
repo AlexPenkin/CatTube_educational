@@ -2,15 +2,17 @@ import {FORM_CHANGED} from '../actions/formChange';
 
 const initialState = {
     username: '',
-    password: ''
+    password: '',
+    passwordConfirm: '',
+    email: ''
 };
 
-const loginForm = (state = initialState, action) => {
+const signUp = (state = initialState, action) => {
     const { value, name, formName } = action;
-    const loginFormChanged = formName === 'login';
+    const signUpFormChanged = formName === 'signUp';
     switch (action.type) {
         case FORM_CHANGED:
-            if (loginFormChanged) {
+            if (signUpFormChanged) {
                 return {
                     ...state,
                     [name]: value
@@ -22,4 +24,4 @@ const loginForm = (state = initialState, action) => {
     }
 };
 
-export default loginForm;
+export default signUp;

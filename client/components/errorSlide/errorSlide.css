@@ -1,6 +1,6 @@
 .error-slide-wrap-show, .error-slide-wrap-hide {
     width: 100%;
-    max-height: 400px;
+    display: inline-block;
     background-color: #971C1C;
     z-index: 10;
     position: absolute;
@@ -55,4 +55,10 @@
 
 .close:after {
     transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 1200px) {
+    .error-slide {
+        width: 100%;
+    }
 }

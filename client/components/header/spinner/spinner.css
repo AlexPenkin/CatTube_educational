@@ -1,4 +1,6 @@
 .spinner-wrap {
+    position: absolute;
+    right: 100px;
     width: 64px;
     height: 100%;
     display: flex;

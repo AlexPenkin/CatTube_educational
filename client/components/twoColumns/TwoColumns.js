@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
 import styles from './TwoColumns.css';
 import ColumnItem from './ColumnItem';
 import cat1 from './images/cat1.png';
@@ -9,9 +8,6 @@ import cat3 from './images/cat3.png';
 import cat4 from './images/cat4.png';
 import cat5 from './images/cat5.png';
 import cat6 from './images/cat6.png';
-
-// import logo from './cat_logo_128.png';
-
 
 const TwoColumns = () =>
     (

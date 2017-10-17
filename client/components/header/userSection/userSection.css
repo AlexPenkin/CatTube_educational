@@ -1,0 +1,32 @@
+.user-section-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 65px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.avatar > img {
+    width: 100%;
+    height: 100%;
+}
+
+.dropdown-caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    content: "";
+    border: 4px solid white;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    transform: translateY(4px);
+    cursor: pointer;
+}

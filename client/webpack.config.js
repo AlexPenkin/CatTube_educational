@@ -11,7 +11,7 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, '../server/public/dist'),
-        publicPath: '//localhost/'
+        publicPath: '/'
     },
     devServer: {
         publicPath: '/dist',
@@ -43,7 +43,10 @@ module.exports = {
             test: /\.css$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: ['css-loader?modules&importLoaders=1&camelCase=true&localIdentName=[name]__[local]___[hash:base64:5]', 'resolve-url-loader']
+                use: [
+                    'css-loader?modules&importLoaders=1&camelCase=true&localIdentName=[name]__[local]___[hash:base64:5]',
+                    'resolve-url-loader'
+                ]
             })
         },
         // {

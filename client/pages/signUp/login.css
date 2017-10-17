@@ -15,8 +15,8 @@ button:focus {
     padding: 4px;
     border-radius: 3px;
     display: block;
-    width: 400px;
-    padding: 20px;
+    width: 300px;
+    padding: 20px 0;
     margin-top: 135px;
     margin-left: 700px;
 }
@@ -30,6 +30,8 @@ button:focus {
 input {
     margin: 0 0 0 10%;
 }
+
+
 
 .button-one {
     border: none;
@@ -53,7 +55,9 @@ input {
 }
 
 .login-input,
-.password-input {
+.password-input,
+.login-input-wrong,
+.password-input-wrong {
     height: 20px;
     width: 246px;
     border-radius: 4px;
@@ -65,6 +69,7 @@ input {
     border: none;
     padding: 10px 10px 10px 40px;
     font-size: 14px;
+    border: solid 1px transparent;
 }
 
 .login-input {
@@ -78,17 +83,17 @@ input {
     background-repeat: no-repeat;
     background-position: 10px 10px;
 }
-
+.login-input-wrong, .password-input-wrong {
+    border: solid 1px rgb(245, 4, 4);
+}
 .remind {
     float: left;
     margin-top: 15px;
-    margin-left: 50px;
 }
 
 .signup {
     float: right;
     margin-top: 15px;
-    margin-right: 55px;
 }
 
 .links a {

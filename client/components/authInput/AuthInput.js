@@ -4,40 +4,69 @@ import {inputImage, authInputWrap} from './AuthInput.css';
 
 const image = (file, selector) => <img className={selector || 'ss'} alt="" src={file} />;
 
-const AuthInput = ({name, type, className, value, placeholder, handler, postName, img}) =>
-    (
-        <div className={authInputWrap}>
-            <input
-                className={className}
-                type={type || 'text'}
-                name={name}
-                placeholder={placeholder}
-                value={value}
-                required
-                onChange={(event) => {
-                    handler(postName, event.target.value);
-                }}
-            />
-            {img && image(img, inputImage)}
-        </div>
-    );
+class AuthInput extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            ...props
+        };
+    }
+
+    render() {
+        const {
+            name,
+            type,
+            className,
+            wrongClassName,
+            value,
+            placeholder,
+            handler,
+            postName,
+            img,
+            validation
+        } = this.props;
+        return (
+            <div className={authInputWrap}>
+                <input
+                    className={validation(value) ? className : wrongClassName}
+                    type={type || 'text'}
+                    name={name}
+                    placeholder={placeholder}
+                    value={value}
+                    required
+                    ref={(input) => { this.ref = input; }}
+                    onChange={(event) => {
+                        handler(postName, event.target.value);
+                    }}
+                />
+                {img && image(img, inputImage)}
+                {console.log(this.ref === document.activeElement)}
+            </div>
+        );
+    }
+}
 
 AuthInput.propTypes = {
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     className: PropTypes.string.isRequired,
+    wrongClassName: PropTypes.string,
     postName: PropTypes.string,
     value: PropTypes.string,
     placeholder: PropTypes.string,
     handler: PropTypes.func.isRequired,
-    img: PropTypes.string
+    img: PropTypes.string,
+    validation: PropTypes.func
 };
 
 AuthInput.defaultProps = {
+    wrongClassName: '',
     postName: '',
     value: '',
     placeholder: '',
-    img: ''
+    img: '',
+    validation: () => true
 };
 
 export default AuthInput;

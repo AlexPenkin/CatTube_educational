@@ -6,48 +6,56 @@ import styles from './login.css';
 import TwoColumns from '../../components/twoColumns/TwoColumns';
 import InputImgPassword from '../../images/cat_logo_64.png';
 
-const SignUp = ({username, password, passwordConfirm, email, fetchUser, formChange}) =>
+const SignUp = ({username, password, passwordConfirm, email, createUser, formChange}) => 
     (
         <div className={styles.formWrap}>
-        <TwoColumns />
+            <TwoColumns />
             <div className={styles.loginWrap}>
                 <div id={styles.loginForm}>
                     <Input
                         name={'username'}
                         type={'text'}
                         className={styles.loginInput}
+                        wrongClassName={styles.loginInputWrong}
                         value={username}
                         placeholder={'Enter login'}
                         handler={formChange}
                         postName={'username'}
                         img={InputImgPassword}
+                        validation={value => value >= 3}
                     />
                     <Input
                         name={'password'}
-                        type={'text'}
+                        type={'password'}
                         className={styles.passwordInput}
+                        wrongClassName={styles.passwordInputWrong}
                         value={password}
                         placeholder={'Enter password'}
                         handler={formChange}
                         postName={'password'}
+                        validation={(passwordValue => value => passwordValue === value && value.length >= 6)(passwordConfirm)}
                         img={InputImgPassword}
                     />
                     <Input
                         name={'passwordConfirm'}
-                        type={'text'}
+                        type={'password'}
                         className={styles.passwordInput}
+                        wrongClassName={styles.passwordInputWrong}
                         value={passwordConfirm}
                         placeholder={'Confirm your password'}
                         handler={formChange}
                         postName={'passwordConfirm'}
+                        validation={(passwordValue => value => passwordValue === value && value.length >= 6)(password)}
                         img={InputImgPassword}
                     />
                     <Input
                         name={'email'}
                         type={'email'}
                         className={styles.passwordInput}
+                        wrongClassName={styles.passwordInputWrong}
                         value={email}
                         placeholder={'Enter E-mail'}
+                        validation={value => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)}
                         handler={formChange}
                         postName={'email'}
                         img={InputImgPassword}
@@ -55,7 +63,7 @@ const SignUp = ({username, password, passwordConfirm, email, fetchUser, formChan
                     <button
                         className={styles.buttonOne}
                         onClick={() => {
-                            fetchUser(username, password);
+                            createUser(username, password, email);
                         }}
                     >
                             Sign Up
@@ -69,12 +77,13 @@ const SignUp = ({username, password, passwordConfirm, email, fetchUser, formChan
         </div>
     );
 
+
 SignUp.propTypes = {
     username: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
     passwordConfirm: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    fetchUser: PropTypes.func.isRequired,
+    createUser: PropTypes.func.isRequired,
     formChange: PropTypes.func.isRequired
 };
 

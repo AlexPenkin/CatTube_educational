@@ -1,6 +1,5 @@
 import {
-    SHOW_ERRORS,
-    SET_ERROR_SHOWN
+    SHOW_ERRORS
 } from '../actions/error';
 
 
