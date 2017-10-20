@@ -5,7 +5,6 @@ import {inputImage, authInputWrap} from './AuthInput.css';
 const image = (file, selector) => <img className={selector || 'ss'} alt="" src={file} />;
 
 class AuthInput extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -50,7 +49,7 @@ class AuthInput extends React.Component {
 AuthInput.propTypes = {
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    className: PropTypes.string.isRequired,
+    className: PropTypes.string,
     wrongClassName: PropTypes.string,
     postName: PropTypes.string,
     value: PropTypes.string,
@@ -61,6 +60,7 @@ AuthInput.propTypes = {
 };
 
 AuthInput.defaultProps = {
+    className: '',
     wrongClassName: '',
     postName: '',
     value: '',

@@ -6,7 +6,6 @@ import Footer from '../footer/Footer';
 import style from './layout.css';
 import normalize from './normalize.css';
 // import fonts from './fonts.css';
-import Login from '../../containers/Login';
 
 const Layout = (Children) => {
     const wrappedComponent = props => (

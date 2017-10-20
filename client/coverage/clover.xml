@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1508451829882" clover="3.2.0">
+  <project timestamp="1508451829882" name="All files">
+    <metrics statements="20" coveredstatements="17" conditionals="8" coveredconditionals="5" methods="8" coveredmethods="5" elements="36" coveredelements="27" complexity="0" loc="20" ncloc="20" packages="2" files="2" classes="2">
+      <package name="components.authInput">
+        <metrics statements="10" coveredstatements="9" conditionals="8" coveredconditionals="5" methods="6" coveredmethods="5"/>
+        <file name="AuthInput.js" path="C:\Projects\CatTube_educational\client\components\authInput\AuthInput.js">
+          <metrics statements="10" coveredstatements="9" conditionals="8" coveredconditionals="5" methods="6" coveredmethods="5"/>
+          <line num="5" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="39" count="1000" type="stmt"/>
+          <line num="49" count="1" type="stmt"/>
+          <line num="62" count="1" type="stmt"/>
+          <line num="69" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="configs">
+        <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <file name="jestsetup.js" path="C:\Projects\CatTube_educational\client\configs\jestsetup.js">
+          <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>

@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "nodemon ./scripts/bin/server",
     "node": "node ./scripts/bin/server",
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "test:coverage": "jest --coverage"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "awilix": "^2.7.0",
+    "eslint": "^4.9.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.0.1",

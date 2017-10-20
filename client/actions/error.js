@@ -13,6 +13,7 @@ export const setErrorShown = id => ({
     id
 });
 
+
 export const showErrors = { type: SHOW_ERRORS };
 
 export const addErrorWithShowning = error => (dispatch) => {

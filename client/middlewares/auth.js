@@ -1,9 +1,11 @@
 import 'whatwg-fetch';
 import { succsessRequestWithotPending } from '../actions/fetchUser';
 
+let reqWasMade = false;
+
 const auth = store => next => (action) => {
     const user = store.getState().user.username;
-    if (user === 'Guest') {
+    if (user === 'Guest' && !reqWasMade) {
         fetch('/auth', {
             method: 'POST',
             headers: {
@@ -16,7 +18,7 @@ const auth = store => next => (action) => {
             if (data.username) {
                 store.dispatch(succsessRequestWithotPending(data.username));
             }
-            return next(action);
+            reqWasMade = true;
         });
     }
     return next(action);

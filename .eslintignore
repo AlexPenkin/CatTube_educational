@@ -1,2 +1,3 @@
 tests/
 polyfills/
+*.test.js

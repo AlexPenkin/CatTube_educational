@@ -1,12 +1,12 @@
 const send = require('koa-send');
-const path = require('path');
 const passport = require('../bin/createServer').passport;
 
 const VIEW = '/public/dist/index.html';
 
 module.exports.default = (router) => {
-    router.get('/login', async(ctx) => {
+    router.get('/login', async (ctx) => {
         ctx.set('Cache-Control', 'public');
+        ctx.status = 200;
         ctx.logout();
         await send(ctx, VIEW);
     });
@@ -28,12 +28,12 @@ module.exports.default = (router) => {
                 }
                 return ctx;
             })(ctx);
-        } else {
-            ctx.status = 200;
-            ctx.body = {
-                username: ctx.state.user.username,
-                message: 'We have been recognize you by your tail =)'
-            }
         }
+        ctx.status = 200;
+        ctx.body = {
+            username: ctx.state.user.username,
+            message: 'We have been recognize you by your tail =)'
+        };
+        return ctx;
     });
 };

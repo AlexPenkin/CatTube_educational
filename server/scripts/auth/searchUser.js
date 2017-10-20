@@ -6,6 +6,5 @@ module.exports = (by, value, connection) => new Promise(async (resolve, reject) 
         }
         resolve(Object.assign({}, results[0]));
     }));
-    // connection.end();
 });
 

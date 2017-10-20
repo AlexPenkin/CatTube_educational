@@ -5,8 +5,15 @@ import Input from '../../components/authInput/AuthInput';
 import styles from './login.css';
 import TwoColumns from '../../components/twoColumns/TwoColumns';
 import InputImgPassword from '../../images/cat_logo_64.png';
+import makeError from '../../utils/makeError';
 
-const SignUp = ({username, password, passwordConfirm, email, createUser, formChange}) => 
+const usernameValidation = value => value.length >= 3;
+const passwordValidation = passwordValue => value => passwordValue === value && value.length >= 6;
+const passwordConfirmValidation = passwordValidation;
+const emailValidation = value => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value);
+
+
+const SignUp = ({username, password, passwordConfirm, email, createUser, formChange, addErrorWithShowning}) =>
     (
         <div className={styles.formWrap}>
             <TwoColumns />
@@ -22,7 +29,7 @@ const SignUp = ({username, password, passwordConfirm, email, createUser, formCha
                         handler={formChange}
                         postName={'username'}
                         img={InputImgPassword}
-                        validation={value => value >= 3}
+                        validation={usernameValidation}
                     />
                     <Input
                         name={'password'}
@@ -33,7 +40,7 @@ const SignUp = ({username, password, passwordConfirm, email, createUser, formCha
                         placeholder={'Enter password'}
                         handler={formChange}
                         postName={'password'}
-                        validation={(passwordValue => value => passwordValue === value && value.length >= 6)(passwordConfirm)}
+                        validation={passwordValidation(passwordConfirm)}
                         img={InputImgPassword}
                     />
                     <Input
@@ -45,7 +52,7 @@ const SignUp = ({username, password, passwordConfirm, email, createUser, formCha
                         placeholder={'Confirm your password'}
                         handler={formChange}
                         postName={'passwordConfirm'}
-                        validation={(passwordValue => value => passwordValue === value && value.length >= 6)(password)}
+                        validation={passwordConfirmValidation(password)}
                         img={InputImgPassword}
                     />
                     <Input
@@ -55,7 +62,7 @@ const SignUp = ({username, password, passwordConfirm, email, createUser, formCha
                         wrongClassName={styles.passwordInputWrong}
                         value={email}
                         placeholder={'Enter E-mail'}
-                        validation={value => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)}
+                        validation={emailValidation}
                         handler={formChange}
                         postName={'email'}
                         img={InputImgPassword}
@@ -63,7 +70,17 @@ const SignUp = ({username, password, passwordConfirm, email, createUser, formCha
                     <button
                         className={styles.buttonOne}
                         onClick={() => {
-                            createUser(username, password, email);
+                            if (
+                                usernameValidation(username) &&
+                                passwordValidation(passwordConfirm)(password) &&
+                                passwordConfirmValidation(password)(passwordConfirm) &&
+                                emailValidation(email)
+                            ) {
+                                createUser(username, password, email);
+                            } else {
+                                const error = makeError('Not valid', 'Fields that marked red, must be filled properly');
+                                addErrorWithShowning(error);
+                            }
                         }}
                     >
                             Sign Up
@@ -77,14 +94,14 @@ const SignUp = ({username, password, passwordConfirm, email, createUser, formCha
         </div>
     );
 
-
 SignUp.propTypes = {
     username: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
     passwordConfirm: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     createUser: PropTypes.func.isRequired,
-    formChange: PropTypes.func.isRequired
+    formChange: PropTypes.func.isRequired,
+    addErrorWithShowning: PropTypes.func.isRequired
 };
 
 export default SignUp;

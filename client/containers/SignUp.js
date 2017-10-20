@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import {createUser} from '../actions/createUser';
 import formChange from '../actions/formChange';
 import SignUp from '../pages/signUp/signUp';
+import { addErrorWithShowning } from '../actions/error';
 
 const mapStateToProps = ({signUp}, ownProps) => ({
     username: signUp.username,
@@ -13,5 +14,6 @@ const mapStateToProps = ({signUp}, ownProps) => ({
 
 export default connect(mapStateToProps, {
     createUser,
-    formChange: formChange('signUp')
+    formChange: formChange('signUp'),
+    addErrorWithShowning
 })(SignUp);
