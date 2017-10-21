@@ -11,6 +11,12 @@ import {
     CREATE_USER_SUCCESS
 } from '../actions/createUser';
 
+import {
+   LOGOUT_ERROR,
+   LOGOUT_PENDING,
+   LOGOUT_SUCCESS
+} from '../actions/logout';
+
 const initialState = {
     username: 'Guest',
     pending: false,
@@ -24,13 +30,17 @@ const User = (state = initialState, action) => {
     const connectionsInc = state.connections + 1;
     const connectionsDec = state.connections - 1;
     switch (action.type) {
+        case CREATE_USER_PENDING:
         case FETCH_USER_PENDING:
+        case LOGOUT_PENDING:
             return {
                 ...state,
                 connections: connectionsInc,
                 pending: connectionsInc + 1 !== 0
             };
+        case CREATE_USER_SUCCESS:
         case FETCH_USER_SUCCESS:
+        case LOGOUT_SUCCESS:
             return {
                 ...state,
                 username: username || state.username,
@@ -42,30 +52,11 @@ const User = (state = initialState, action) => {
                 ...state,
                 username
             };
-
-        case FETCH_USER_ERROR:
-            return {
-                ...state,
-                connections: connectionsDec,
-                pending: connectionsDec !== 0
-            };
-        case CREATE_USER_PENDING:
-            return {
-                ...state,
-                connections: connectionsInc,
-                pending: connectionsInc + 1 !== 0
-            };
-        case CREATE_USER_SUCCESS:
-            return {
-                ...state,
-                connections: connectionsDec,
-                pending: connectionsDec !== 0
-            };
-
         case CREATE_USER_ERROR:
+        case FETCH_USER_ERROR:
+        case LOGOUT_ERROR:
             return {
                 ...state,
-                username: 'error',
                 connections: connectionsDec,
                 pending: connectionsDec !== 0
             };

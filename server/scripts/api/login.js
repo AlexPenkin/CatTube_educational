@@ -7,7 +7,6 @@ module.exports.default = (router) => {
     router.get('/login', async (ctx) => {
         ctx.set('Cache-Control', 'public');
         ctx.status = 200;
-        ctx.logout();
         await send(ctx, VIEW);
     });
 

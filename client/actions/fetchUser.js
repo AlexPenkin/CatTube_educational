@@ -1,5 +1,6 @@
 import 'whatwg-fetch';
 import {addErrorWithoutShowning, addErrorWithShowning} from './error';
+import makeError from '../utils/makeError';
 
 export const FETCH_USER = 'FETCH_USER';
 export const FETCH_USER_PENDING = 'FETCH_USER_PENDING';
@@ -26,13 +27,6 @@ const errorRequest = err => ({
     type: FETCH_USER_ERROR,
     value: err
 });
-
-function makeError(name, message) {
-    const error = new Error();
-    error.name = name;
-    error.message = message;
-    return error;
-}
 
 export const fetchUser = (username, password) => (dispatch) => {
     dispatch(pendingRequest(true));
